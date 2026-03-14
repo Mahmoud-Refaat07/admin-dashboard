@@ -8,9 +8,21 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import PeopleOutlineOutlinedIcon from "@mui/icons-material/PeopleOutlineOutlined";
+import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import QuizOutlinedIcon from "@mui/icons-material/QuizOutlined";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
+import ShowChartOutlinedIcon from "@mui/icons-material/ShowChartOutlined";
+import TerrainOutlinedIcon from "@mui/icons-material/TerrainOutlined";
 import List from "@mui/material/List";
 import MuiDrawer from "@mui/material/Drawer";
 import { styled, useTheme, type Theme } from "@mui/material/styles";
+import { Avatar, Typography } from "@mui/material";
 
 interface Props {
   open: boolean;
@@ -74,6 +86,70 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
+const firstSection = [
+  {
+    title: "Dashboard",
+    icon: <HomeOutlinedIcon />,
+    path: "/",
+  },
+  {
+    title: "Manage Team",
+    icon: <PeopleOutlineOutlinedIcon />,
+    path: "/team",
+  },
+  {
+    title: "Contacts Information",
+    icon: <ContactsOutlinedIcon />,
+    path: "/contacts",
+  },
+  {
+    title: "Invoices Balances",
+    icon: <ReceiptOutlinedIcon />,
+    path: "/invoices",
+  },
+];
+
+const secondSection = [
+  {
+    title: "Profile Form",
+    icon: <PermIdentityOutlinedIcon />,
+    path: "/profile",
+  },
+  {
+    title: "Calender",
+    icon: <CalendarMonthOutlinedIcon />,
+    path: "/calender",
+  },
+  {
+    title: "FAQ Page",
+    icon: <QuizOutlinedIcon />,
+    path: "/faq",
+  },
+];
+
+const thirdSection = [
+  {
+    title: "Bar Chart",
+    icon: <BarChartOutlinedIcon />,
+    path: "/bar",
+  },
+  {
+    title: "Pie Chart",
+    icon: <PieChartOutlineOutlinedIcon />,
+    path: "/pie",
+  },
+  {
+    title: "Line Chart",
+    icon: <ShowChartOutlinedIcon />,
+    path: "/line",
+  },
+  {
+    title: "Geography Chart",
+    icon: <TerrainOutlinedIcon />,
+    path: "/geography",
+  },
+];
+
 const NavBar = ({ open, handleDrawerClose }: Props) => {
   const theme = useTheme();
 
@@ -88,10 +164,34 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
           )}
         </IconButton>
       </DrawerHeader>
+      <Avatar
+        sx={{
+          mx: "auto",
+          height: open ? 88 : 44,
+          width: open ? 88 : 44,
+          my: 2,
+          border: "2px solid gray",
+          transition: "0.25s",
+        }}
+        alt="Remy Sharp"
+        src="https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740&q=80"
+      />
+      <Typography
+        align="center"
+        sx={{ fontSize: open ? 17 : 0, transition: "0.25s" }}
+      >
+        TEST
+      </Typography>
+      <Typography
+        align="center"
+        sx={{ fontSize: open ? 15 : 0, transition: "0.25s" }}
+      >
+        ADMIN
+      </Typography>
       <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
+        {firstSection.map(({ title, icon, path }, index) => (
+          <ListItem key={title} disablePadding sx={{ display: "block" }}>
             <ListItemButton
               sx={[
                 {
@@ -122,10 +222,10 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
                       },
                 ]}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {icon}
               </ListItemIcon>
               <ListItemText
-                primary={text}
+                primary={title}
                 sx={[
                   open
                     ? {
@@ -142,8 +242,8 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
+        {secondSection.map(({ title, icon, path }, index) => (
+          <ListItem key={title} disablePadding sx={{ display: "block" }}>
             <ListItemButton
               sx={[
                 {
@@ -174,10 +274,10 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
                       },
                 ]}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {icon}
               </ListItemIcon>
               <ListItemText
-                primary={text}
+                primary={title}
                 sx={[
                   open
                     ? {
@@ -192,6 +292,59 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
           </ListItem>
         ))}
       </List>
+      <Divider />
+      <List>
+        {thirdSection.map(({ title, icon, path }, index) => (
+          <ListItem key={title} disablePadding sx={{ display: "block" }}>
+            <ListItemButton
+              sx={[
+                {
+                  minHeight: 48,
+                  px: 2.5,
+                },
+                open
+                  ? {
+                      justifyContent: "initial",
+                    }
+                  : {
+                      justifyContent: "center",
+                    },
+              ]}
+            >
+              <ListItemIcon
+                sx={[
+                  {
+                    minWidth: 0,
+                    justifyContent: "center",
+                  },
+                  open
+                    ? {
+                        mr: 3,
+                      }
+                    : {
+                        mr: "auto",
+                      },
+                ]}
+              >
+                {icon}
+              </ListItemIcon>
+              <ListItemText
+                primary={title}
+                sx={[
+                  open
+                    ? {
+                        opacity: 1,
+                      }
+                    : {
+                        opacity: 0,
+                      },
+                ]}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
     </Drawer>
   );
 };
