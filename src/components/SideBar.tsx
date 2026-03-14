@@ -6,8 +6,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
@@ -23,6 +21,7 @@ import List from "@mui/material/List";
 import MuiDrawer from "@mui/material/Drawer";
 import { styled, useTheme, type Theme } from "@mui/material/styles";
 import { Avatar, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   open: boolean;
@@ -90,7 +89,7 @@ const firstSection = [
   {
     title: "Dashboard",
     icon: <HomeOutlinedIcon />,
-    path: "/",
+    path: "/dashboard",
   },
   {
     title: "Manage Team",
@@ -152,6 +151,7 @@ const thirdSection = [
 
 const NavBar = ({ open, handleDrawerClose }: Props) => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   return (
     <Drawer variant="permanent" open={open}>
@@ -178,21 +178,32 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
       />
       <Typography
         align="center"
-        sx={{ fontSize: open ? 17 : 0, transition: "0.25s" }}
+        sx={{
+          fontSize: open ? 17 : 0,
+          transition: "0.25s",
+        }}
       >
         TEST
       </Typography>
       <Typography
         align="center"
-        sx={{ fontSize: open ? 15 : 0, transition: "0.25s" }}
+        sx={{
+          mb: open ? 5 : 2,
+          fontSize: open ? 15 : 0,
+          transition: "0.25s",
+          color: theme.palette.info.main,
+        }}
       >
         ADMIN
       </Typography>
       <Divider />
       <List>
         {firstSection.map(({ title, icon, path }, index) => (
-          <ListItem key={title} disablePadding sx={{ display: "block" }}>
+          <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
+              onClick={() => {
+                navigate(path);
+              }}
               sx={[
                 {
                   minHeight: 48,
@@ -243,8 +254,11 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
       <Divider />
       <List>
         {secondSection.map(({ title, icon, path }, index) => (
-          <ListItem key={title} disablePadding sx={{ display: "block" }}>
+          <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
+              onClick={() => {
+                navigate(path);
+              }}
               sx={[
                 {
                   minHeight: 48,
@@ -295,8 +309,11 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
       <Divider />
       <List>
         {thirdSection.map(({ title, icon, path }, index) => (
-          <ListItem key={title} disablePadding sx={{ display: "block" }}>
+          <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
+              onClick={() => {
+                navigate(path);
+              }}
               sx={[
                 {
                   minHeight: 48,

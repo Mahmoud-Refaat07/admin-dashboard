@@ -7,6 +7,7 @@ import SideBar from "./components/SideBar";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { darkTheme } from "./theme/theme";
 import type { PaletteMode } from "@mui/material/styles";
+import { Outlet } from "react-router-dom";
 
 export default function App() {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -35,30 +36,7 @@ export default function App() {
         />
         <SideBar open={open} handleDrawerClose={handleDrawerClose} />
         <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 8 }}>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            recusandae in laudantium tenetur quibusdam reiciendis, minima
-            blanditiis officia aliquid accusantium harum quae ea rem rerum eum
-            at id veritatis molestias.
-          </div>{" "}
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            recusandae in laudantium tenetur quibusdam reiciendis, minima
-            blanditiis officia aliquid accusantium harum quae ea rem rerum eum
-            at id veritatis molestias.
-          </div>{" "}
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            recusandae in laudantium tenetur quibusdam reiciendis, minima
-            blanditiis officia aliquid accusantium harum quae ea rem rerum eum
-            at id veritatis molestias.
-          </div>{" "}
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            recusandae in laudantium tenetur quibusdam reiciendis, minima
-            blanditiis officia aliquid accusantium harum quae ea rem rerum eum
-            at id veritatis molestias.
-          </div>
+          <Outlet />
         </Box>
       </Box>
     </ThemeProvider>
