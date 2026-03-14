@@ -10,7 +10,9 @@ import type { PaletteMode } from "@mui/material/styles";
 
 export default function App() {
   const [open, setOpen] = React.useState<boolean>(false);
-  const [mode, setMode] = React.useState<PaletteMode>("light");
+  const [mode, setMode] = React.useState<PaletteMode>(
+    (localStorage.getItem("theme") as PaletteMode) || "light",
+  );
 
   const handleDrawerOpen = () => {
     setOpen(true);

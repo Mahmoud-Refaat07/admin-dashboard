@@ -124,6 +124,7 @@ const Header = ({ handleDrawerOpen, open, setMode }: Props) => {
               color="inherit"
               onClick={() => {
                 setMode((prev) => (prev === "light" ? "dark" : "light"));
+                window.localStorage.setItem("theme", "light");
               }}
             >
               <DarkModeOutlinedIcon />
@@ -133,6 +134,7 @@ const Header = ({ handleDrawerOpen, open, setMode }: Props) => {
               color="inherit"
               onClick={() => {
                 setMode((prev) => (prev === "light" ? "dark" : "light"));
+                window.localStorage.setItem("theme", "dark");
               }}
             >
               <LightModeOutlinedIcon />
