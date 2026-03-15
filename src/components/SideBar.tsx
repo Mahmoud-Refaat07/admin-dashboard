@@ -22,6 +22,7 @@ import MuiDrawer from "@mui/material/Drawer";
 import { styled, useTheme, type Theme } from "@mui/material/styles";
 import { Avatar, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { grey } from "@mui/material/colors";
 
 interface Props {
   open: boolean;
@@ -152,6 +153,9 @@ const thirdSection = [
 const NavBar = ({ open, handleDrawerClose }: Props) => {
   const theme = useTheme();
   const navigate = useNavigate();
+  console.log();
+
+  const currentLocation = location.pathname.slice(1);
 
   return (
     <Drawer variant="permanent" open={open}>
@@ -208,6 +212,12 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
                 {
                   minHeight: 48,
                   px: 2.5,
+                  bgcolor:
+                    path.slice(1) === currentLocation
+                      ? theme.palette.mode === "dark"
+                        ? grey[800]
+                        : grey[300]
+                      : "",
                 },
                 open
                   ? {
@@ -263,6 +273,12 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
                 {
                   minHeight: 48,
                   px: 2.5,
+                  bgcolor:
+                    path.slice(1) === currentLocation
+                      ? theme.palette.mode === "dark"
+                        ? grey[800]
+                        : grey[300]
+                      : "",
                 },
                 open
                   ? {
@@ -318,6 +334,12 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
                 {
                   minHeight: 48,
                   px: 2.5,
+                  bgcolor:
+                    path.slice(1) === currentLocation
+                      ? theme.palette.mode === "dark"
+                        ? grey[800]
+                        : grey[300]
+                      : "",
                 },
                 open
                   ? {
