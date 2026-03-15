@@ -183,17 +183,18 @@ const NavBar = ({ open, handleDrawerClose }: Props) => {
       <Typography
         align="center"
         sx={{
-          fontSize: open ? 17 : 0,
+          fontSize: open ? 17 : { xs: 9, sm: 0 },
           transition: "0.25s",
         }}
       >
-        TEST
+        Mahmoud
       </Typography>
       <Typography
         align="center"
         sx={{
           mb: open ? 5 : 2,
-          fontSize: open ? 15 : 0,
+          fontSize: open ? 15 : { xs: 14, sm: 0 },
+          fontWeight: "bold",
           transition: "0.25s",
           color: theme.palette.info.main,
         }}

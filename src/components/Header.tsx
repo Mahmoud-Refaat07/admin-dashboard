@@ -102,7 +102,7 @@ const Header = ({ handleDrawerOpen, open, setMode }: Props) => {
           sx={[
             {
               marginRight: 5,
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", sm: "flex" },
             },
             open && { display: "none" },
           ]}
