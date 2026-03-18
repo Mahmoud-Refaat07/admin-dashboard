@@ -4,6 +4,7 @@ import { Box, Typography, useTheme } from "@mui/material";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import SecurityIcon from "@mui/icons-material/Security";
+import UpperTitles from "../components/UpperTitles";
 
 interface RowProps {
   id: number;
@@ -167,13 +168,16 @@ const TeamPage = () => {
   ];
 
   return (
-    <div style={{ height: 600, width: "98%", margin: "auto" }}>
-      <DataGrid
-        rows={rows}
-        // @ts-expect-error DataGrid column type mismatch
-        columns={columns}
-      />
-    </div>
+    <Box>
+      <UpperTitles title={"TEAM"} subTitle={"Managing the Team Members"} />
+      <div style={{ height: 600, width: "98%", margin: "auto" }}>
+        <DataGrid
+          rows={rows}
+          // @ts-expect-error DataGrid column type mismatch
+          columns={columns}
+        />
+      </div>
+    </Box>
   );
 };
 

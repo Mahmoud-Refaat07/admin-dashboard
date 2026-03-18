@@ -5,7 +5,6 @@ import {
   Snackbar,
   Stack,
   TextField,
-  useTheme,
   type SnackbarCloseReason,
 } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
@@ -13,6 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import React from "react";
 
 import { useForm, type SubmitHandler } from "react-hook-form";
+import UpperTitles from "../components/UpperTitles";
 
 const ProfileFormPage = () => {
   const [open, setOpen] = React.useState(false);
@@ -66,13 +66,12 @@ const ProfileFormPage = () => {
     setOpen(false);
   };
 
-  const theme = useTheme();
   return (
-    <>
-      <h2 style={{ color: theme.palette.info.dark, marginBottom: "-10px" }}>
-        CRAETE USER
-      </h2>
-      <p style={{ fontSize: "14px" }}>Create a New User Profile</p>
+    <Box>
+      <UpperTitles
+        title={"CRAETE USER"}
+        subTitle={"Create a New User Profile"}
+      />
       <Box
         component="form"
         sx={{ display: "flex", flexDirection: "column", gap: 3 }}
@@ -173,7 +172,7 @@ const ProfileFormPage = () => {
           </Snackbar>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 

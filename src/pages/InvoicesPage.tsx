@@ -1,6 +1,7 @@
-import { useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
+import UpperTitles from "../components/UpperTitles";
 
 const InvoicesPage = () => {
   const columns = [
@@ -81,11 +82,8 @@ const InvoicesPage = () => {
   }, []);
 
   return (
-    <>
-      <h2 style={{ color: theme.palette.info.dark, marginBottom: "-10px" }}>
-        INVOICES
-      </h2>
-      <p style={{ fontSize: "14px" }}>List of invoice Balances</p>
+    <Box>
+      <UpperTitles title="INVOICES" subTitle="List of invoice Balances" />
       <div style={{ height: 600, width: "98%", margin: "auto" }}>
         <DataGrid
           checkboxSelection
@@ -94,7 +92,7 @@ const InvoicesPage = () => {
           columns={columns}
         />
       </div>
-    </>
+    </Box>
   );
 };
 

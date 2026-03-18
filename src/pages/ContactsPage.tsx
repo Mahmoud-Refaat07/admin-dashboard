@@ -29,6 +29,8 @@ import Typography from "@mui/material/Typography";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
 import type { GridColDef } from "@mui/x-data-grid";
+import { Box } from "@mui/material";
+import UpperTitles from "../components/UpperTitles";
 
 type OwnerState = {
   expanded: boolean;
@@ -278,17 +280,23 @@ const ContactsPage = () => {
     fetchingData();
   }, []);
   return (
-    <div style={{ height: 600, width: "98%", margin: "auto" }}>
-      <DataGrid
-        {...data}
-        loading={loading}
-        slots={{ toolbar: CustomToolbar }}
-        showToolbar
-        rows={rows}
-        // @ts-expect-error DataGrid column type mismatch
-        columns={columns}
+    <Box>
+      <UpperTitles
+        title="CONTACTS"
+        subTitle="List of Contacts for Future Reference"
       />
-    </div>
+      <div style={{ height: 600, width: "98%", margin: "auto" }}>
+        <DataGrid
+          {...data}
+          loading={loading}
+          slots={{ toolbar: CustomToolbar }}
+          showToolbar
+          rows={rows}
+          // @ts-expect-error DataGrid column type mismatch
+          columns={columns}
+        />
+      </div>
+    </Box>
   );
 };
 
