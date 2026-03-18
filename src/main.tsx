@@ -12,7 +12,7 @@ import DashboardPage from "./pages/DashboardPage.tsx";
 
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import ProfilePage from "./pages/ProfilePage.tsx";
+import ProfileFormPage from "./pages/ProfileFormPage.tsx";
 import CalenderPage from "./pages/CalenderPage.tsx";
 import FaqPage from "./pages/FaqPage.tsx";
 import BarChartPage from "./pages/BarChartPage.tsx";
@@ -27,7 +27,7 @@ const router = createBrowserRouter(
       <Route path="/team" element={<TeamPage />} />
       <Route path="/contacts" element={<ContactsPage />} />
       <Route path="/invoices" element={<InvoicesPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/profile-form" element={<ProfileFormPage />} />
       <Route path="/calender" element={<CalenderPage />} />
       <Route path="/faq" element={<FaqPage />} />
       <Route path="/bar" element={<BarChartPage />} />

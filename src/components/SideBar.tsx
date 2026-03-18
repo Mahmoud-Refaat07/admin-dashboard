@@ -113,7 +113,7 @@ const secondSection = [
   {
     title: "Profile Form",
     icon: <PermIdentityOutlinedIcon />,
-    path: "/profile",
+    path: "/profile-form",
   },
   {
     title: "Calender",
